@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="lab3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,62 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="72G-jB-7gD">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGr-2i-suM">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="buttonStartClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XyM-Qa-v6x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBt-hN-z1B">
+                                        <rect key="frame" x="200" y="0.0" width="200" height="50"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="buttonStopClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GLu-wS-Thp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vmp-Sh-0BG">
+                                        <rect key="frame" x="400" y="0.0" width="200" height="50"/>
+                                        <state key="normal" title="Wyczysc"/>
+                                        <connections>
+                                            <action selector="buttonClearClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="onx-Ax-cZB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MG0-iO-EAh"/>
+                                </constraints>
+                            </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XTM-qx-7OT">
+                                <rect key="frame" x="0.0" y="20" width="600" height="530"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="72G-jB-7gD" secondAttribute="trailing" id="1tw-py-M6s"/>
+                            <constraint firstItem="72G-jB-7gD" firstAttribute="top" secondItem="XTM-qx-7OT" secondAttribute="bottom" id="73D-ia-ctP"/>
+                            <constraint firstItem="XTM-qx-7OT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B2N-QX-64N"/>
+                            <constraint firstAttribute="trailing" secondItem="XTM-qx-7OT" secondAttribute="trailing" id="SqN-GJ-OGv"/>
+                            <constraint firstItem="72G-jB-7gD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="isg-D6-xZI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="72G-jB-7gD" secondAttribute="bottom" id="qk6-p2-gUA"/>
+                            <constraint firstItem="XTM-qx-7OT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xaw-PV-Wqf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonClear" destination="Vmp-Sh-0BG" id="41z-CD-tEj"/>
+                        <outlet property="buttonStart" destination="fGr-2i-suM" id="HQd-o2-pmA"/>
+                        <outlet property="buttonStop" destination="EBt-hN-z1B" id="yNY-P9-k64"/>
+                        <outlet property="mapview" destination="XTM-qx-7OT" id="Ezr-kM-lb1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="307" y="466"/>
         </scene>
     </scenes>
 </document>
